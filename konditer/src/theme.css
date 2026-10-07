@@ -1,0 +1,59 @@
+@import "../../src/index.css";
+@import "@fontsource-variable/rubik";
+@import "@fontsource-variable/caveat";
+
+/* «Безе»: фисташково-молочный фон, тёмный зелёно-графитовый текст, малиновый акцент */
+@theme inline {
+  --font-sans: "Rubik Variable", system-ui, sans-serif;
+  --font-heading: "Rubik Variable", system-ui, sans-serif;
+  --font-hand: "Caveat Variable", cursive;
+  --color-ink: #1f2a1e;
+  --color-pistachio: #bfd8a6;
+  --color-raspberry: #d6336c;
+}
+
+:root {
+  --background: #f3f6ee;
+  --foreground: #1f2a1e;
+  --card: #fbfcf8;
+  --card-foreground: #1f2a1e;
+  --popover: #fbfcf8;
+  --popover-foreground: #1f2a1e;
+  /* Малиновый #d6336c с белым текстом даёт 4.6:1. Для мелкого текста на светлом используем более тёмный оттенок */
+  --primary: #c92a63;
+  --primary-foreground: #fff7f9;
+  --secondary: #e4ecd9;
+  --secondary-foreground: #1f2a1e;
+  --muted: #e4ecd9;
+  --muted-foreground: #586555;
+  --accent: #bfd8a6;
+  --accent-foreground: #1f2a1e;
+  --border: #d6e0cb;
+  --input: #c3cfb6;
+  --ring: #c92a63;
+  /* Радиусы: всё круглое и мягкое, карточки 28-32px, кнопки-таблетки */
+  --radius: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

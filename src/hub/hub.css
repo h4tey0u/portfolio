@@ -1,0 +1,44 @@
+@import "../index.css";
+@import "@fontsource-variable/geist-mono";
+
+/* Главная портфолио: тёмный фон, чтобы цветные работы были главными. Один акцент — лайм */
+@theme inline {
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --color-lime: #c8f04a;
+}
+
+:root {
+  --background: #0f0f10;
+  --foreground: #f2f2f0;
+  --card: #18181a;
+  --card-foreground: #f2f2f0;
+  --popover: #18181a;
+  --popover-foreground: #f2f2f0;
+  --primary: #c8f04a;
+  --primary-foreground: #0f0f10;
+  --secondary: #222224;
+  --secondary-foreground: #f2f2f0;
+  --muted: #222224;
+  --muted-foreground: #a1a19c;
+  --accent: #222224;
+  --accent-foreground: #f2f2f0;
+  --border: rgb(242 242 240 / 0.1);
+  --input: rgb(242 242 240 / 0.16);
+  --ring: #c8f04a;
+  --radius: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

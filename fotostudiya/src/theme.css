@@ -1,0 +1,95 @@
+@import "../../src/index.css";
+@import "@fontsource-variable/unbounded";
+@import "@fontsource-variable/geologica";
+
+/* «Плёнка»: светлый фон, чёрный, сигнальный жёлтый. Необрутализм: толстые обводки и жёсткие тени */
+@theme inline {
+  --font-sans: "Geologica Variable", system-ui, sans-serif;
+  --font-heading: "Unbounded Variable", system-ui, sans-serif;
+  --color-ink: #0e0e0e;
+  --color-signal: #ffd400;
+  --shadow-hard: 4px 4px 0 0 #0e0e0e;
+  --shadow-hard-lg: 8px 8px 0 0 #0e0e0e;
+}
+
+:root {
+  --background: #f4f4f2;
+  --foreground: #0e0e0e;
+  --card: #fbfbfa;
+  --card-foreground: #0e0e0e;
+  --popover: #fbfbfa;
+  --popover-foreground: #0e0e0e;
+  /* Основная кнопка чёрная: жёлтый текст на белом нечитаем, поэтому жёлтый работает только как фон */
+  --primary: #0e0e0e;
+  --primary-foreground: #ffd400;
+  --secondary: #e6e6e2;
+  --secondary-foreground: #0e0e0e;
+  --muted: #e6e6e2;
+  --muted-foreground: #55554f;
+  --accent: #ffd400;
+  --accent-foreground: #0e0e0e;
+  --border: #0e0e0e;
+  --input: #0e0e0e;
+  --ring: #0e0e0e;
+  /* Радиусы: 6px для всего, фото без скругления */
+  --radius: 0.375rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+h1, h2, h3, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Кнопки «нажимаются»: тень исчезает, кнопка сдвигается на её место */
+.press {
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.press:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 var(--color-ink);
+}
+.press:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 var(--color-ink);
+}
+
+/* Бегущая строка, единственная на странице */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee {
+    animation: none;
+  }
+  .press,
+  .press:hover,
+  .press:active {
+    transform: none;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

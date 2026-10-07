@@ -1,0 +1,71 @@
+@import "../../src/index.css";
+@import "@fontsource-variable/onest";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* «Метр в метр»: тёплый светлый фон, графит, один терракотовый акцент */
+@theme inline {
+  --font-sans: "Onest Variable", system-ui, sans-serif;
+  --font-heading: "Onest Variable", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --color-graphite: #1c1c1a;
+}
+
+:root {
+  --background: #f4f1ec;
+  --foreground: #1c1c1a;
+  --card: #fbfaf7;
+  --card-foreground: #1c1c1a;
+  --popover: #fbfaf7;
+  --popover-foreground: #1c1c1a;
+  --primary: #ba4c24;
+  --primary-foreground: #fff8f3;
+  --secondary: #e8e3da;
+  --secondary-foreground: #1c1c1a;
+  --muted: #eae6df;
+  --muted-foreground: #5f5b55;
+  --accent: #e8e3da;
+  --accent-foreground: #1c1c1a;
+  --border: #dbd5cb;
+  --input: #cfc8bc;
+  --ring: #ba4c24;
+  /* Радиусы: кнопки и поля 10px, карточки и фото 16px */
+  --radius: 0.625rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ползунок калькулятора */
+.range {
+  @apply w-full cursor-pointer appearance-none bg-transparent;
+}
+.range::-webkit-slider-runnable-track {
+  @apply h-1.5 rounded-full bg-border;
+}
+.range::-moz-range-track {
+  @apply h-1.5 rounded-full bg-border;
+}
+.range::-webkit-slider-thumb {
+  @apply -mt-[9px] size-6 appearance-none rounded-full border-4 border-card bg-primary shadow-[0_2px_8px_rgb(28_28_26/0.25)];
+}
+.range::-moz-range-thumb {
+  @apply size-5 rounded-full border-4 border-card bg-primary;
+}
+.range:focus-visible {
+  @apply outline-none;
+}
+.range:focus-visible::-webkit-slider-thumb {
+  @apply ring-4 ring-ring/30;
+}

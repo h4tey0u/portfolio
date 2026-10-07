@@ -1,0 +1,54 @@
+@import "../../src/index.css";
+@import "@fontsource-variable/manrope";
+
+/* «Ровно»: почти белый фон, чернильный текст, один кобальтовый акцент */
+@theme inline {
+  --font-sans: "Manrope Variable", system-ui, sans-serif;
+  --font-heading: "Manrope Variable", system-ui, sans-serif;
+  --color-ink: #142229;
+  --color-tint: #e9eefc;
+}
+
+:root {
+  --background: #f7f8f6;
+  --foreground: #142229;
+  --card: #fdfdfc;
+  --card-foreground: #142229;
+  --popover: #fdfdfc;
+  --popover-foreground: #142229;
+  --primary: #2f5bea;
+  --primary-foreground: #f7f9ff;
+  --secondary: #eceeec;
+  --secondary-foreground: #142229;
+  --muted: #eceeec;
+  --muted-foreground: #55646a;
+  --accent: #e9eefc;
+  --accent-foreground: #142229;
+  --border: #e0e4e2;
+  --input: #d3d9d7;
+  --ring: #2f5bea;
+  /* Радиусы: кнопки-таблетки, поля 12px, карточки 20px, крупные фото 28px */
+  --radius: 0.75rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

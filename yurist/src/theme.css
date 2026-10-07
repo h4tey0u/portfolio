@@ -1,0 +1,73 @@
+@import "../../src/index.css";
+@import "@fontsource-variable/ibm-plex-sans";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/* «Коршунов и партнёры»: холодный светлый фон, почти чёрный текст, один глубокий зелёный акцент */
+@theme inline {
+  --font-sans: "IBM Plex Sans Variable", system-ui, sans-serif;
+  --font-heading: "IBM Plex Sans Variable", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --color-ink: #16211d;
+  --color-paper: #f7f8f6;
+}
+
+:root {
+  --background: #eef0ee;
+  --foreground: #16211d;
+  --card: #f7f8f6;
+  --card-foreground: #16211d;
+  --popover: #f7f8f6;
+  --popover-foreground: #16211d;
+  --primary: #1e5b47;
+  --primary-foreground: #f2f7f4;
+  --secondary: #e2e6e3;
+  --secondary-foreground: #16211d;
+  --muted: #e2e6e3;
+  --muted-foreground: #4f5d57;
+  --accent: #dde8e2;
+  --accent-foreground: #16211d;
+  --border: #cfd5d1;
+  --input: #b9c1bc;
+  --ring: #1e5b47;
+  /* Почти острые углы везде: 3px. Документ, а не приложение */
+  --radius: 0.1875rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Переворачивающиеся карточки «миф / правда» */
+.flip {
+  perspective: 1400px;
+}
+.flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.flip[data-open="true"] .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
